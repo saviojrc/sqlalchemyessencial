@@ -1,0 +1,19 @@
+## Ignora todos os arquivos jetbrains
+*.iml
+*.ipr
+*.iws
+.idea/
+## Ignora os arquivos de log
+*.log
+
+## Ignora os arquivos de cache
+*.cache
+## Ignora os arquivos a venv
+03sqla_sync/03sqla_sync
+## Ignora os arquivos de banco de dados
+*.sqlite3
+*.db
+## Ignora os arquivos os arquivos de cache __pycache__
+__pycache__/
+## Ignora os arquivos de cache do Python
+*.pyc
