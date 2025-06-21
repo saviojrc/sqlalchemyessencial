@@ -1,15 +1,17 @@
-import sqlalchemy as sa
-from sqlalchemy.orm import sessionmaker
 from pathlib import Path
 from typing import Optional
-from sqlalchemy.orm import Session
+
+import sqlalchemy as sa
 from sqlalchemy.future.engine import Engine
+from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
+
 from models.model_base import ModelBase
 
+__engine: Optional[Engine] = None
 
-__engine : Optional[Engine] = None
 
-def create_engine(sqlite : bool = False) -> Engine:
+def create_engine(sqlite: bool = False) -> Engine:
     """Create and return a SQLAlchemy engine.
     Args:
         sqlite (bool): If True, create a SQLite engine; otherwise, create a PostgreSQL engine.
@@ -48,18 +50,17 @@ def create_session() -> Session:
     if not __engine:
         create_engine(True)
 
-
     __session = sessionmaker(bind=__engine, expire_on_commit=False, class_=Session)
-    session : Session = __session()
+    session: Session = __session()
 
     return session
 
-def create_tables() :
+
+def create_tables():
     """Create all tables in the database using the ModelBase metadata."""
     global __engine
 
     if not __engine:
         create_engine(True)
-    import models.__all_models
     ModelBase.metadata.create_all(__engine)
     ModelBase.metadata.create_all(__engine)
