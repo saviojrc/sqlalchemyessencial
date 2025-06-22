@@ -62,5 +62,9 @@ def create_tables():
 
     if not __engine:
         create_engine(True)
+
+    ## Importa tudo o que tem em models.__all_models.py
+    from models import __all_models  # noqa: F401
+
     ModelBase.metadata.create_all(__engine)
     ModelBase.metadata.create_all(__engine)

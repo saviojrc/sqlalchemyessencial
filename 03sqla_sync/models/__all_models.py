@@ -8,3 +8,16 @@ from models.revendedor import Revendedor
 from models.sabor import Sabor
 from models.tipo_embalagem import TipoEmbalagem
 from models.tipo_picole import TipoPicole
+
+__all__ = [
+    "AditivoNutritivo",
+    "Concervante",
+    "Ingrediente",
+    "Lote",
+    "NotaFiscal",
+    "Picole",
+    "Revendedor",
+    "Sabor",
+    "TipoEmbalagem",
+    "TipoPicole"
+]
