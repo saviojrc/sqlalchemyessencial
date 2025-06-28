@@ -12,11 +12,3 @@ class Ingrediente(ModelBase):
 
     def __repr__(self):
         return f"<Ingrediente(nome={self.nome}')>"
-
-
-    def __dict__(self):
-        return {
-            'id': str(self.id),
-            'data_criacao': str(self.data_criacao),
-            'nome': str(self.nome)
-        }

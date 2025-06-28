@@ -91,3 +91,21 @@ class GeradorDados:
         ]
         return random.choice(vitaminas)
 
+    @staticmethod
+    def gerar_tipo_embalagem_faker():
+        adjetivo = faker.word().capitalize()
+        embalagem = random.choice([
+            "caixa", "saco", "envelope", "frasco", "lata", "pote",
+            "garrafa", "pacote", "tubo", "barril", "caixote", "balde",
+            "saco plástico", "saco de papel", "caixa de papelão", "caixa de madeira",
+            "caixa de plástico", "caixa de metal", "caixa de vidro", "caixa de isopor",
+            "caixa de alumínio", "caixa de papel kraft", "caixa de papelão ondulado",
+            "caixa de papelão reciclado", "caixa de papelão ondulado reciclado", "caixa de papelão liso",
+            "caixa de papelão micro ondulado", "caixa de papelão triplex", "caixa de papelão duplex",
+            "caixa de papelão kraft", "caixa de papelão cinza", "caixa de papelão branco",
+            "caixa de papelão marrom", "caixa de papelão colorido", "caixa de papelão estampado",
+            "caixa de papelão liso colorido", "caixa de papelão liso estampado", "caixa de papelão ondulado colorido",
+            "caixa de papelão ondulado estampado", "caixa de papelão micro ondulado colorido", "caixa de papelão micro ondulado estampado"
+        ])
+        return f"{embalagem} {adjetivo}"
+
