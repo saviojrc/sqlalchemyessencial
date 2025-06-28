@@ -25,7 +25,7 @@ def create_engine(sqlite: bool = False) -> Engine:
         return __engine
 
     if sqlite:
-        arquivo_db = f'db/picoles.db'
+        arquivo_db = f'../db/picoles.db'
         folder = Path(arquivo_db).parent
         folder.mkdir(parents=True, exist_ok=True)
 

@@ -7,11 +7,10 @@ class Revendedor(ModelBase):
 
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     data_criacao = sa.Column(sa.DateTime, default=datetime.now, index = True, nullable=False)
-    nome = sa.Column(sa.String(45), nullable=False, unique=True)
     cnpj = sa.Column(sa.String(14), nullable=False, unique=True)
     razao_social = sa.Column(sa.String(100), nullable=False)
     contato = sa.Column(sa.String(100), nullable=False)
 
 
     def __repr__(self):
-        return f"<Revendedor(nome={self.nome}')>"
+        return f"<Revendedor(nome={self.razao_social}')>"

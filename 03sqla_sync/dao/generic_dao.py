@@ -20,6 +20,7 @@ class GenericDAO:
             with self.session as session:
                 session.add(obj)
                 session.commit()
+                session.refresh(obj)  # Atualiza o objeto com os dados do banco
 
         except Exception as e:
             print(f'Erro ao inserir {e}')

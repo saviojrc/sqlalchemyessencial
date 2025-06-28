@@ -1,11 +1,13 @@
 from dao.sabor_dao import SaborDAO
 from models.sabor import Sabor
+from services.db_service import DBService
 
+db_service = DBService()
 
 ## Insert a new Sabor record
 
 def insert_sabor():
-    sabor_dao = SaborDAO()
+    sabor_dao = SaborDAO(db_service=db_service)
     ## Recebe os valores com input do usuário
     nome: str = input("Digite o nome do sabor: ")
 

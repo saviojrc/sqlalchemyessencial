@@ -2,10 +2,12 @@ from time import process_time_ns
 
 from models.ingrediente import Ingrediente
 from dao.ingredientes_dao import IngredientesDAO
+from services.db_service import DBService
 
+db_service = DBService()
 ## Insert a new Ingrediente record
 def insert_ingrediente():
-    ingredientes_dao = IngredientesDAO()
+    ingredientes_dao = IngredientesDAO(db_service)
     ## Recebe os valores com input do usuário
     nome: str = input("Digite o nome do ingrediente: ")
 

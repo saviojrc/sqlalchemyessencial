@@ -1,7 +1,10 @@
 from models.tipo_picole import TipoPicole
 from dao.tipos_picoles_dao import TipoPicoleDAO
+from services.db_service import DBService
 
-tipo_picole_dao = TipoPicoleDAO()
+db_service = DBService()
+
+tipo_picole_dao = TipoPicoleDAO(db_service=db_service)
 
 def inserir_tipos_picoles():
     ## Imput do nome do picole

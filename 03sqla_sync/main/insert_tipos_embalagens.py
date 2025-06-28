@@ -1,6 +1,10 @@
 from models.tipo_embalagem import TipoEmbalagem
 from dao.tipos_embalagens_dao import TipoEmbalagemDAO
-tipo_embalagem_dao = TipoEmbalagemDAO()
+from services.db_service import DBService
+
+db_service = DBService()
+
+tipo_embalagem_dao = TipoEmbalagemDAO(db_service=db_service)
 def inserir_tipos_embalagens():
 
     ## Imput do nome da embalagem
