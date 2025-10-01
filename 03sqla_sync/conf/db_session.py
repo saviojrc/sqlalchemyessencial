@@ -5,11 +5,15 @@ import sqlalchemy as sa
 from sqlalchemy.future.engine import Engine
 from sqlalchemy.orm import Session
 from sqlalchemy.orm import sessionmaker
-
+import os
 from models.model_base import ModelBase
 
 __engine: Optional[Engine] = None
+## Path db em 03sqla_sync/db/picoles.db
 
+path_file_db = os.path.abspath(__file__)
+path_folder_db = os.path.dirname(path_file_db)
+path_db = os.path.join(path_folder_db, '..', 'db', 'picoles.db')
 
 def create_engine(sqlite: bool = False) -> Engine:
     """Create and return a SQLAlchemy engine.
@@ -25,11 +29,11 @@ def create_engine(sqlite: bool = False) -> Engine:
         return __engine
 
     if sqlite:
-        arquivo_db = f'../db/picoles.db'
-        folder = Path(arquivo_db).parent
+
+        folder = Path(path_db).parent
         folder.mkdir(parents=True, exist_ok=True)
 
-        conn_str = f'sqlite:///{arquivo_db}'
+        conn_str = f'sqlite:///{path_db}'
         __engine = sa.create_engine(conn_str, echo=False, connect_args={"check_same_thread": False})
     else:
         conn_str = f'postgresql://geek:university@localhost:5432/picoles'
@@ -66,5 +70,5 @@ def create_tables():
     ## Importa tudo o que tem em models.__all_models.py
     from models import __all_models  # noqa: F401
 
-    ModelBase.metadata.create_all(__engine)
+    ModelBase.metadata.drop_all(__engine)
     ModelBase.metadata.create_all(__engine)

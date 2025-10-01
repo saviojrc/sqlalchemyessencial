@@ -38,6 +38,7 @@ class IngredientesDAO(GenericDAO):
         """
         try:
             self.insert(ingrediente)
+            return ingrediente
         except Exception as e:
             print(f'Erro ao inserir Ingrediente {ingrediente.nome}: {e}')
             raise e

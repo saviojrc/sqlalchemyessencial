@@ -24,9 +24,10 @@ class NotaFiscalDAO(GenericDAO):
         finally:
             self.close_session()
 
-    def inserir_nota_fiscal(self, id_revendedor : int ,descricao : str ,numero_serie : str ,valor : float ) -> NotaFiscal:
+    def inserir_nota_fiscal(self, id_revendedor : int ,descricao : str ,numero_serie : str ,valor : float , lotes : list ) -> NotaFiscal:
         """
         Insere uma nova nota fiscal no banco de dados.
+        :param lotes:
         :param id_revendedor:
         :param descricao:
         :param numero_serie:
@@ -39,8 +40,10 @@ class NotaFiscalDAO(GenericDAO):
                 valor=valor,
                 numero_serie=numero_serie,
                 descricao=descricao,
-                id_revendedor=id_revendedor
+                id_revendedor=id_revendedor,
+                lotes= lotes
             )
+
             self.insert(nota_fiscal)
             return nota_fiscal
         except Exception as e:

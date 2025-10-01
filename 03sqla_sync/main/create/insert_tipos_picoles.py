@@ -13,6 +13,9 @@ def inserir_tipos_picoles():
     ## Cria o objeto TipoPicole
     tipo_picole = TipoPicole(nome=nome)
 
+
+
+
     ## Insere o tipo de picole no banco de dados
     try:
         tipo_picole_dao.inserir_tipo_picole(tipo_picole)

@@ -24,6 +24,7 @@ class TipoEmbalagemDAO(GenericDAO):
     def inserir_tipo_embalagem(self, tipo_embalagem: TipoEmbalagem):
         try:
             self.insert(tipo_embalagem)
+            return tipo_embalagem
         except Exception as e:
             print(f'Erro ao inserir TipoEmbalagem {tipo_embalagem.nome}: {e}')
             raise e

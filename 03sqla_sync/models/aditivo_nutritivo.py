@@ -16,3 +16,5 @@ class AditivoNutritivo(ModelBase):
 
     def __repr__(self):
         return  f'<AditivoNutritivo(nome={self.nome})>'
+
+

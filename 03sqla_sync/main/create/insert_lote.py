@@ -1,7 +1,6 @@
-from models.lote import Lote
 from dao.lote_dao import LoteDAO
 from services.db_service import DBService
-
+from util.logger import Logger
 db_service = DBService()
 lote_dao = LoteDAO(db_service)
 
@@ -19,8 +18,8 @@ def insert_lote():
             quantidade=quantidade,
             identificador_tipo_picole=identificador_tipo_picole
         )
-        print('Lote inserido com sucesso!')
-        print({
+        Logger.info('Lote inserido com sucesso!')
+        Logger.info({
             'id': lote.id,
             'data_criacao': lote.data_criacao,
             'quantidade': lote.quantidade,
@@ -30,9 +29,14 @@ def insert_lote():
                 'nome': lote.tipo_picole.nome
             }
         })
+        return lote
 
     except Exception as e:
-        print(f'Erro ao inserir Lote: {e}')
+        Logger.error({
+            'message': 'Erro ao inserir lote',
+            'error': str(e)
+        })
+        raise e
 
 
 if __name__ == "__main__":

@@ -1,4 +1,3 @@
-from models.ingrediente import Ingrediente
 from dao.revendedor_dao import RevendedorDAO
 from services.db_service import DBService
 

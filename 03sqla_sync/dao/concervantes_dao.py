@@ -1,5 +1,5 @@
 from dao.generic_dao import GenericDAO
-from models.concervante import Concervante
+from models.conservante import Conservante
 from services.db_service import DBService
 
 
@@ -21,7 +21,7 @@ class ConcervanteDAO(GenericDAO):
     def consultar_por_id(self, identificador: int):
         try:
             concervante = self.select_by_id(
-                type_obj=Concervante,
+                type_obj=Conservante,
                 id=identificador
             )
             return concervante
@@ -39,15 +39,16 @@ class ConcervanteDAO(GenericDAO):
         :return: None
         """
         try:
-            concervante = Concervante(nome=nome, descricao=descricao)
+            concervante = Conservante(nome=nome, descricao=descricao)
             self.insert(concervante)
+            return concervante
         except Exception as e:
             print(f'Erro ao inserir Concervante {nome}: {e}')
             raise e
         finally:
             self.close_session()
 
-    def atualizar_concervante(self, concervante: Concervante):
+    def atualizar_concervante(self, concervante: Conservante):
         """
         Atualiza um concervante existente no banco de dados.
         :param concervante: Objeto Concervante a ser atualizado.
@@ -61,7 +62,7 @@ class ConcervanteDAO(GenericDAO):
         finally:
             self.close_session()
 
-    def apagar_concervante(self, concervante: Concervante):
+    def apagar_concervante(self, concervante: Conservante):
         """
         Apaga um concervante do banco de dados.
         :param concervante: Objeto Concervante a ser apagado.

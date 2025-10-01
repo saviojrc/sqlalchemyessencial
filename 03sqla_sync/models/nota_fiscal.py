@@ -2,6 +2,7 @@ from datetime import datetime
 
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
+from sqlalchemy.orm import Mapped
 
 from models.revendedor import Revendedor
 from models.lote import Lote
@@ -44,7 +45,7 @@ class NotaFiscal(ModelBase):
     descricao = sa.Column(sa.String(200), nullable=True)
     id_revendedor = sa.Column(sa.Integer, sa.ForeignKey('revendedores.id'), nullable=False)
     revendedor  = orm.relationship(Revendedor,lazy='joined')
-    lotes : [Lote] = orm.relationship(
+    lotes = orm.relationship(
         Lote,
         secondary=lotes_nota_fiscal,
         backref='lote',

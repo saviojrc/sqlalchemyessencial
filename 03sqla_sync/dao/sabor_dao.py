@@ -23,6 +23,7 @@ class SaborDAO(GenericDAO):
     def inserir_sabor(self, sabor: Sabor):
         try:
             self.insert(sabor)
+            return sabor
         except Exception as e:
             print(f'Erro ao inserir Sabor {sabor.nome}: {e}')
             raise e

@@ -41,3 +41,6 @@ class LoteDAO(GenericDAO):
         except Exception as e:
             print(f'Erro ao inserir lote: {e}')
             raise e
+        finally:
+            self.close_session()
+

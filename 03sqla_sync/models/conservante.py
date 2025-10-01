@@ -2,7 +2,7 @@ import sqlalchemy as sa
 from datetime import datetime
 from models.model_base import ModelBase
 
-class Concervante(ModelBase):
+class Conservante(ModelBase):
     __tablename__ = 'conservantes'
 
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
