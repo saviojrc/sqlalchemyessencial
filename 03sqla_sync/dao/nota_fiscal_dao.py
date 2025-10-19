@@ -1,5 +1,5 @@
 from services.db_service import DBService
-from models.nota_fiscal import NotaFiscal
+from models.notas_fiscais import NotaFiscal
 from dao.generic_dao import GenericDAO
 
 

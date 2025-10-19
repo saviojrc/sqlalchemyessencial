@@ -1,5 +1,5 @@
 from services.db_service import DBService
-from models.revendedor import Revendedor
+from models.revendedores import Revendedor
 from dao.generic_dao import GenericDAO
 
 class RevendedorDAO(GenericDAO):

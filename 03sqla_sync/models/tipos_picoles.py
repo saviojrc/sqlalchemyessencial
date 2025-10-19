@@ -5,8 +5,8 @@ import sqlalchemy as sa
 from models.model_base import ModelBase
 
 
-class TipoPicole(ModelBase):
-    __tablename__ = "tipos_picole"
+class TiposPicoles(ModelBase):
+    __tablename__ = "tipos_picoles"
 
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     data_criacao = sa.Column(sa.DateTime,
@@ -17,4 +17,4 @@ class TipoPicole(ModelBase):
 
 
     def __repr__(self):
-        return f"<TipoPicole(id={self.id})>"
+        return f"<TiposPicoles(id={self.id}, nome={self.nome})>"

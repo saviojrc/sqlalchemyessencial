@@ -1,8 +1,7 @@
-from models.sabor import Sabor
 from dao.generic_dao import GenericDAO
+from models.sabores import Sabor
 from services.db_service import DBService
-from util.logger import Logger
-from util.helpers import formata_data
+
 
 ### Classe que gerencia as operações de CRUD para a entidade Sabor
 
@@ -11,19 +10,15 @@ class SaborDAO(GenericDAO):
     def __init__(self, db_service: DBService):
         super().__init__(db_service=db_service)
 
-    def consultar_por_id(self, id_sabor: int) -> None:
+    def consultar_por_id(self, id_sabor: int):
         try:
+            sabor: Sabor
             with self.session as session:
-                sabor: Sabor = session.query(Sabor).filter(Sabor.id == id_sabor).first()
+                sabor = session.query(Sabor).filter(Sabor.id == id_sabor).one_or_none()
 
-                if not sabor:
-                    Logger.warning(f'Sabor com ID {id_sabor} não encontrado.')
+            return sabor
 
-                Logger.info({
-                    'id': sabor.id,
-                    'nome': sabor.nome,
-                    'data_criacao': formata_data(sabor.data_criacao)
-                })
+
         except Exception as e:
             print(f'Erro ao consultar Sabor por ID {id_sabor}: {e}')
             raise e

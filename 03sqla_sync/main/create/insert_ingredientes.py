@@ -1,6 +1,6 @@
 from time import process_time_ns
 
-from models.ingrediente import Ingrediente
+from models.ingredientes import Ingrediente
 from dao.ingredientes_dao import IngredientesDAO
 from services.db_service import DBService
 

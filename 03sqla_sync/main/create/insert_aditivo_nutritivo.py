@@ -1,5 +1,5 @@
 from conf.db_session import create_session
-from models.aditivo_nutritivo import AditivoNutritivo
+from models.aditivos_nutritivos import AditivoNutritivo
 
 ## Insert a new AditivoNutritivo record
 def insert_aditivo_nutritivo():

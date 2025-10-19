@@ -1,7 +1,7 @@
 ## Classe que representa o DAO (Data Access Object) para a tabela ingredientes
 
 from dao.generic_dao import GenericDAO
-from models.ingrediente import Ingrediente
+from models.ingredientes import Ingrediente
 from services.db_service import DBService
 
 

@@ -7,7 +7,33 @@ sabor_dao = SaborDAO(db_service=db_service)
 
 def select_filtro_sabor(id: int):
     try:
-        sabor_dao.consultar_por_id(id_sabor=id)
+        sabor  = sabor_dao.consultar_por_id(id_sabor=id)
+
+        if sabor:
+            Logger.info({
+                'message': 'Sabor encontrado:',
+                'id': sabor.id,
+                'nome': sabor.nome,
+                'descricao': sabor.descricao,
+                'data_criacao': sabor.data_criacao,
+                'data_atualizacao': sabor.data_atualizacao
+            })
+            Logger.info({
+                "mensagem": "Sabor encontrado",
+                "sabor": {
+                    'id': sabor.id,
+                    'nome': sabor.nome,
+                    'descricao': sabor.descricao
+                }
+            })
+
+        Logger.info({
+            "mensagem": "Sabor não encontrado",
+            "parametros": {
+                'id': id
+            }
+        })
+
     except Exception as e:
         Logger.error({
             'message': f'Erro ao consultar sabor com ID {id}',

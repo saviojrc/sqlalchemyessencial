@@ -5,16 +5,16 @@ from sqlalchemy.orm import Session
 from util.logger import Logger
 from util.helpers import gerar_string, gerar_int, gerar_float, gerar_cor
 from conf.db_session import create_session
-from models.aditivo_nutritivo import AditivoNutritivo
-from models.sabor import Sabor
-from models.tipo_embalagem import TipoEmbalagem
-from models.tipo_picole import TipoPicole
-from models.ingrediente import Ingrediente
-from models.conservante import Conservante
-from models.revendedor import Revendedor
-from models.lote import Lote
-from models.nota_fiscal import NotaFiscal
-from models.picole import Picole
+from models.aditivos_nutritivos import AditivoNutritivo
+from models.sabores import Sabor
+from models.tipos_embalagens import TiposEmbalagens
+from models.tipos_picoles import TipoPicole
+from models.ingredientes import Ingrediente
+from models.conservantes import Conservante
+from models.revendedores import Revendedor
+from models.lotes import Lote
+from models.notas_fiscais import NotaFiscal
+from models.picoles import Picole
 
 
 #1) Aditivos Nutritivos
@@ -64,7 +64,7 @@ def populate_tipo_embalagem():
     for _ in tqdm(range(1, 101), desc='Cadastrando...', colour=cor):
         nome: str = gerar_string()
 
-        tipo_embalagem: TipoEmbalagem = TipoEmbalagem(nome=nome)
+        tipo_embalagem: TiposEmbalagens = TiposEmbalagens(nome=nome)
         session.add(tipo_embalagem)
         sleep(0.05)
         

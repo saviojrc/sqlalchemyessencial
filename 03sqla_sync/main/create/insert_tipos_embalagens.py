@@ -1,4 +1,4 @@
-from models.tipo_embalagem import TipoEmbalagem
+from models.tipos_embalagens import TiposEmbalagens
 from dao.tipos_embalagens_dao import TipoEmbalagemDAO
 from services.db_service import DBService
 
@@ -11,7 +11,7 @@ def inserir_tipos_embalagens():
     nome = input("Digite o nome da embalagem: ")
 
     ## Cria o objeto TipoEmbalagem
-    tipo_embalagem = TipoEmbalagem(nome=nome)
+    tipo_embalagem = TiposEmbalagens(nome=nome)
 
     ## Insere o tipo de embalagem no banco de dados
     try:

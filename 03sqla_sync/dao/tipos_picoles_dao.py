@@ -1,5 +1,5 @@
 from dao.generic_dao import GenericDAO
-from models.tipo_picole import TipoPicole
+from models.tipos_picoles import TipoPicole
 from services.db_service import DBService
 
 

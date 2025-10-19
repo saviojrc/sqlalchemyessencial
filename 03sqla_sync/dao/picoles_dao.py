@@ -1,5 +1,5 @@
 from services.db_service import DBService
-from models.picole import Picole
+from models.picoles import Picole
 from dao.generic_dao import GenericDAO
 from typing import Optional
 
@@ -24,7 +24,27 @@ class PicoleDAO(GenericDAO):
         finally:
             self.close_session()
 
-    def inserir_picole(self, preco : float , id_sabor : int , id_tipo_embalagem : int , id_tipo_picole : int , ingredientes : list , conservantes : Optional[list] , aditivos_nutritivos : Optional[list] ) -> Picole:
+    def motrar_todos_picoles(self)-> list:
+        try:
+            with self.session as session:
+                picoles = session.query(Picole).all()
+                if picoles:
+                    return picoles
+                else:
+                    return []
+        except Exception as e:
+            print("Erro ao consultar todos os picoles:", str(e))
+            raise e
+        finally:
+            self.close_session()
+
+    def inserir_picole(self, preco : float ,
+                       id_sabor : int ,
+                       id_tipo_embalagem : int ,
+                       id_tipo_picole : int ,
+                       ingredientes : list ,
+                       conservantes : Optional[list] ,
+                       aditivos_nutritivos : Optional[list] ) -> Picole:
         """
         Insere um novo picole no banco de dados.
         :param preco:

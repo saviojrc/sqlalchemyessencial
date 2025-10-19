@@ -2,7 +2,7 @@ import sqlalchemy as sa
 from datetime import datetime
 from models.model_base import ModelBase
 
-class Revendedor(ModelBase):
+class Revendedores(ModelBase):
     __tablename__ = 'revendedores'
 
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
@@ -13,4 +13,4 @@ class Revendedor(ModelBase):
 
 
     def __repr__(self):
-        return f"<Revendedor(nome={self.razao_social}')>"
+        return f"<Revendedor(id={self.id}, cnpj={self.cnpj}, razao_social={self.razao_social}, contato={self.contato})>"

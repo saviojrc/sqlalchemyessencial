@@ -1,4 +1,4 @@
-from models.tipo_picole import TipoPicole
+from models.tipos_picoles import TipoPicole
 from dao.tipos_picoles_dao import TipoPicoleDAO
 from services.db_service import DBService
 

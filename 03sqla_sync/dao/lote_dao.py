@@ -1,5 +1,5 @@
 from services.db_service import DBService
-from models.lote import  Lote
+from models.lotes import  Lote
 from dao.generic_dao import GenericDAO
 
 class LoteDAO(GenericDAO):

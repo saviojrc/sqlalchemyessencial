@@ -1,13 +1,13 @@
-from models.aditivo_nutritivo import AditivoNutritivo
-from models.conservante import Conservante
-from models.ingrediente import Ingrediente
-from models.lote import Lote
-from models.nota_fiscal import NotaFiscal
-from models.picole import Picole
-from models.revendedor import Revendedor
-from models.sabor import Sabor
-from models.tipo_embalagem import TipoEmbalagem
-from models.tipo_picole import TipoPicole
+from models.aditivos_nutritivos import AditivoNutritivo
+from models.conservantes import Conservante
+from models.ingredientes import Ingrediente
+from models.lotes import Lote
+from models.notas_fiscais import NotaFiscal
+from models.picoles import Picole
+from models.revendedores import Revendedor
+from models.sabores import Sabor
+from models.tipos_embalagens import TiposEmbalagens
+from models.tipos_picoles import TipoPicole
 
 __all__ = [
     "AditivoNutritivo",
@@ -18,6 +18,6 @@ __all__ = [
     "Picole",
     "Revendedor",
     "Sabor",
-    "TipoEmbalagem",
+    "TiposEmbalagens",
     "TipoPicole"
 ]

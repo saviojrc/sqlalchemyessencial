@@ -1,5 +1,5 @@
 from dao.generic_dao import GenericDAO
-from models.tipo_embalagem import TipoEmbalagem
+from models.tipos_embalagens import TiposEmbalagens
 from services.db_service import DBService
 
 
@@ -11,9 +11,9 @@ class TipoEmbalagemDAO(GenericDAO):
     def __init__(self, db_service: DBService):
         super().__init__(db_service=db_service)
 
-    def consultar_por_id(self, identificador: int) -> TipoEmbalagem:
+    def consultar_por_id(self, identificador: int) -> TiposEmbalagens:
         try:
-            tipo_embalagem: TipoEmbalagem = self.select_by_id(identificador, TipoEmbalagem)
+            tipo_embalagem: TiposEmbalagens = self.select_by_id(identificador, TiposEmbalagens)
             return tipo_embalagem
         except Exception as e:
             print(f'Erro ao consultar TipoEmbalagem por ID {identificador}: {e}')
@@ -21,7 +21,7 @@ class TipoEmbalagemDAO(GenericDAO):
         finally:
             self.close_session()
 
-    def inserir_tipo_embalagem(self, tipo_embalagem: TipoEmbalagem):
+    def inserir_tipo_embalagem(self, tipo_embalagem: TiposEmbalagens):
         try:
             self.insert(tipo_embalagem)
             return tipo_embalagem
@@ -31,7 +31,7 @@ class TipoEmbalagemDAO(GenericDAO):
         finally:
             self.close_session()
 
-    def atualizar_tipo_embalagem(self, tipo_embalagem: TipoEmbalagem):
+    def atualizar_tipo_embalagem(self, tipo_embalagem: TiposEmbalagens):
         try:
             self.update(tipo_embalagem)
         except Exception as e:
@@ -40,7 +40,7 @@ class TipoEmbalagemDAO(GenericDAO):
         finally:
             self.close_session()
 
-    def apagar_tipo_embalagem(self, tipo_embalagem: TipoEmbalagem):
+    def apagar_tipo_embalagem(self, tipo_embalagem: TiposEmbalagens):
         try:
             self.delete(tipo_embalagem)
         except Exception as e:

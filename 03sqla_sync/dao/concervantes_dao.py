@@ -1,5 +1,5 @@
 from dao.generic_dao import GenericDAO
-from models.conservante import Conservante
+from models.conservantes import Conservante
 from services.db_service import DBService
 
 

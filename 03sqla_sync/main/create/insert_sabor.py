@@ -1,5 +1,5 @@
 from dao.sabor_dao import SaborDAO
-from models.sabor import Sabor
+from models.sabores import Sabor
 from services.db_service import DBService
 
 db_service = DBService()
